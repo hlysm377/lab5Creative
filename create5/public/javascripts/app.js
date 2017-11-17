@@ -1,0 +1,54 @@
+angular.module('profile', [])
+  .controller('MainCtrl', [
+    '$scope','$http',
+    function($scope,$http) {
+      $scope.profiles = [];
+      $scope.create = function(profile) {
+        return $http.post('/profiles', profile).success(function(data){
+          $scope.profiles.push(data);
+        });
+      };
+      $scope.addProfile = function() {
+	if($scope.formContent === '') {return;}
+	console.log("In addProfile with "+$scope.formContent);
+	$scope.create({
+	  title: $scope.formContent,
+	  upvotes: 0,
+	});
+	//var newObject = {title:$scope.formContent,upvotes:0};
+	//$scope.comments.push(newObject);
+	$scope.formContent = "";
+      };
+      $scope.incrementUpvotes = function (profile) {
+	//comment.upvotes += 1;
+	$scope.upvote(profile);
+      };
+
+      $scope.upvote = function(profile) {
+        return $http.put('/profiles/' + profile._id + '/upvote')
+          .success(function(data){
+            console.log("upvote worked");
+            profile.upvotes += 1;
+          });
+      };
+
+      $scope.delete = function(profile) {
+        $http.delete('/profiles/' + profile._id )
+          .success(function(data){
+            console.log("delete worked");
+          });
+        $scope.getAll();
+      };
+
+      $scope.getAll = function() {
+        return $http.get('/profiles').success(function(data){
+          console.log("In getAll");
+	  angular.copy(data, $scope.profiles);
+        });
+      };
+      console.log("before call");
+      $scope.getAll();
+      console.log("after call");
+    }
+  ]);
+
