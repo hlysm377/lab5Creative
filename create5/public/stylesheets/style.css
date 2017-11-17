@@ -15,11 +15,13 @@ a {
   margin: 20px;
 }
 
-.ng-start {
+.Cards {
   padding: 20px;
   float: left;
   margin: 20px;
+  margin-left: -100px;
 }
+
 form {
   all: unset;
 }

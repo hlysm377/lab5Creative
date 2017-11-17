@@ -9,35 +9,30 @@
 
 </head>
 <body ng-app="profile" ng-controller="MainCtrl">
-<!--<div class="row">
-<div class="col-md-6 col-md-offset-3">-->
 <div class="page header">
-  <h1>Profiles</h1>
+  <h1>Thoughts</h1>
 </div>
 
   <form ng-submit="addProfile()" style="margin-top30px">
     <label for="name">Name: <input type="text" ng-model="nameContent"></input>
     <label for="status">Status: <input type="text" ng-model="formContent"></input>
     <label for="pic">Picture url: <input type="url" ng-model="picContent"></input>
-    <button type="submit">Add Profile</button>
+    <button type="submit">Add Thought</button>
   </form>
   <div>
 
   <div id="profileList" class="card" style="width: 20rem;">
-  <div ng-repeat="profile in profiles">
+  <div ng-repeat="profile in profiles" class="Cards">
     <img class="card-img-top" src="{{profile.pic}}" alt="" height="50px" width="50px">
     <div class="card-block">
     <span class="glyphicon glyphicon-remove" ng-click="delete(profile)"></span>
-    <!--<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(profile)"></span>-->
     <h4 class="card-title">{{profile.name}}</h4>
     <p class="card-text">Status: {{profile.status}}</p>
-    <button type="update">Update Status</button>
+    <!--<button type="update">Update Status</button>-->
     </div>
     </div>
   </div>
   </div>
-<!--</div>
-</div>-->
 </body>
 </html>
 

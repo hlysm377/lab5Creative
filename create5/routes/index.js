@@ -39,13 +39,13 @@ router.get('/profiles/:profile',function(req,res) {
   res.json(req.profile);
 });
 
-router.put('/profiles/:profile/upvote', function(req,res,next){
+/*router.put('/profiles/:profile/upvote', function(req,res,next){
   req.profile.upvote(function(err,profile) {
     if(err){return next(err);}
     res.json(profile);
   });
 });
-
+*/
 router.delete('/profiles/:profile', function(req, res) {
   console.log("in Delete");
   req.profile.remove();

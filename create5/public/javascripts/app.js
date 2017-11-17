@@ -23,19 +23,6 @@ angular.module('profile', [])
 	$scope.picContent = "";
       };
       
-      //$scope.incrementUpvotes = function (profile) {
-	//comment.upvotes += 1;
-	//$scope.upvote(profile);
-      //};
-
-      /*$scope.upvote = function(profile) {
-        return $http.put('/profiles/' + profile._id + '/upvote')
-          .success(function(data){
-            console.log("upvote worked");
-            profile.upvotes += 1;
-          });
-      };*/
-
       $scope.delete = function(profile) {
         $http.delete('/profiles/' + profile._id )
           .success(function(data){
