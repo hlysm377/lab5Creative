@@ -22,6 +22,7 @@ angular.module('profile', [])
 	$scope.nameContent = "";
 	$scope.picContent = "";
       };
+      
       //$scope.incrementUpvotes = function (profile) {
 	//comment.upvotes += 1;
 	//$scope.upvote(profile);
