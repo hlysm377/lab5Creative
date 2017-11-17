@@ -5,28 +5,39 @@
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
   <script src="javascripts/app.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
 
 </head>
 <body ng-app="profile" ng-controller="MainCtrl">
-<div class="row">
-<div class="col-md-6 col-md-offset-3">
+<!--<div class="row">
+<div class="col-md-6 col-md-offset-3">-->
 <div class="page header">
   <h1>Profiles</h1>
 </div>
 
   <form ng-submit="addProfile()" style="margin-top30px">
-    <input type="text" ng-model="formContent"></input>
+    <label for="name">Name: <input type="text" ng-model="nameContent"></input>
+    <label for="status">Status: <input type="text" ng-model="formContent"></input>
+    <label for="pic">Picture url: <input type="url" ng-model="picContent"></input>
     <button type="submit">Add Profile</button>
   </form>
   <div>
 
-  <div ng-repeat="profile in profiles | orderBy: '-upvotes'">
+  <div id="profileList" class="card" style="width: 20rem;">
+  <div ng-repeat="profile in profiles">
+    <img class="card-img-top" src="{{profile.pic}}" alt="" height="50px" width="50px">
+    <div class="card-block">
     <span class="glyphicon glyphicon-remove" ng-click="delete(profile)"></span>
-    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(profile)"></span>
-    {{profile.title}} - upvotes: {{profile.upvotes}}
+    <!--<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(profile)"></span>-->
+    <h4 class="card-title">{{profile.name}}</h4>
+    <p class="card-text">Status: {{profile.status}}</p>
+    <a href="#" class="btn btn-primary">Update Status</a>
+    </div>
+    </div>
   </div>
-</div>
-</div>
+  </div>
+<!--</div>
+</div>-->
 </body>
 </html>
 

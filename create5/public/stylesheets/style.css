@@ -1,8 +1,24 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  float: left;
 }
 
 a {
   color: #00B7FF;
+}
+
+.card {
+  padding: 20px;
+  float: left;
+  margin: 20px;
+}
+
+.ng-start {
+  padding: 10px;
+  float: left;
+  margin: 20px;
+}
+form {
+  all: unset;
 }

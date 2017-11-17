@@ -9,28 +9,31 @@ angular.module('profile', [])
         });
       };
       $scope.addProfile = function() {
-	if($scope.formContent === '') {return;}
-	console.log("In addProfile with "+$scope.formContent);
+	if($scope.formContent === '' || $scope.nameContent === '') {return;}
+	console.log("In addProfile with "+$scope.nameContent);
 	$scope.create({
-	  title: $scope.formContent,
-	  upvotes: 0,
+	  name: $scope.nameContent,
+	  status: $scope.formContent,
+	  pic: $scope.picContent
 	});
 	//var newObject = {title:$scope.formContent,upvotes:0};
 	//$scope.comments.push(newObject);
 	$scope.formContent = "";
+	$scope.nameContent = "";
+	$scope.picContent = "";
       };
-      $scope.incrementUpvotes = function (profile) {
+      //$scope.incrementUpvotes = function (profile) {
 	//comment.upvotes += 1;
-	$scope.upvote(profile);
-      };
+	//$scope.upvote(profile);
+      //};
 
-      $scope.upvote = function(profile) {
+      /*$scope.upvote = function(profile) {
         return $http.put('/profiles/' + profile._id + '/upvote')
           .success(function(data){
             console.log("upvote worked");
             profile.upvotes += 1;
           });
-      };
+      };*/
 
       $scope.delete = function(profile) {
         $http.delete('/profiles/' + profile._id )
